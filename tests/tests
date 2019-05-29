@@ -1,0 +1,395 @@
+############################
+#        MANDATORY         #
+############################
+
+########
+# ECHO #
+########
+echo ok \n  \n echo ok
+echo "yolo": tcsh
+echo "bonjour" 'be$status' $status:tcsh
+echo "mdr": tcsh
+echo "$status":tcsh
+echo '$status':tcsh
+echo a\na:tcsh
+echo "a\ta":tcsh
+echo $unknown_var:tcsh
+echo file: echo_file
+echo $:tcsh
+echo $?: tcsh
+# echo $$$$$$$bonjour:tcsh
+echo ~:tcsh
+# echo *:tcsh
+echo "ls | cat -e": tcsh
+echo "\\": tcsh
+echo "ok" 'test': tcsh
+echo multiple "test1" 'test2': tcsh
+echo ptdr\rok: tcsh
+echo l l l l l l: tcsh
+echo "oui" "oui" "oui": tcsh
+echo 'non' 'non' 'non': tcsh
+echo non non non: tcsh
+echo \'\'\'\': tcsh
+echo \"\"\"\": tcsh
+
+##########
+# REPEAT #
+##########
+
+repeat 2 echo e:tcsh
+repeat 2 echo e ; ls:tcsh
+repeat 2 repeat 2 echo bonjour:tcsh
+repeat bonjour ls:tcsh
+
+###########
+# ESCAPES #
+###########
+echo \ GG \ | cat -e: tcsh
+echo \ OK\ \ | cat -e: tcsh
+
+##########
+# QUOTES #
+##########
+':tcsh
+'':tcsh
+": tcsh
+"": tcsh
+"test_quote": tcsh
+"echo lol": tcsh
+"ls:tcsh
+'ls:tcsh
+echo "'ok'": tcsh
+echo "\"": tcsh
+echo '\'': tcsh
+echo '"': tcsh
+echo "'": tcsh
+echo "\'": tcsh
+echo '\"': tcsh
+echo 'mdr': tcsh
+echo '\\': tcsh
+echo "\\": tcsh
+echo "a\na": tcsh
+echo 'a\na': tcsh
+
+###############
+# REDIRECTION #
+###############
+ls > test ; cat test; rm test: tcsh
+ls | cat -e | grep 42: tcsh
+ls | cat -e > test ; cat test ; rm test: tcsh
+ls | cat -e > test ; cat test | cat -e; rm test: tcsh
+pwd >> test.txt ; cat test.txt ; rm test.txt: tcsh
+pwd > test.txt ; cat test.txt ; rm test.txt: tcsh
+cat -e < toto | grep x: tcsh
+# ls -l > toto ; cat -e < toto | grep x; rm toto: tcsh
+echo Hello > test ; echo World >> test ; cat -e test; rm test: tcsh
+echo hello > test ; cat < test; cat < ls: tcsh
+echo lol > test; cat test | grep toto: tcsh
+
+#########
+# PIPES #
+#########
+echo $PATH | grep usr > folder; cat folder; rm folder: tcsh
+ls | cat -s:tcsh
+ls | cat -e | cat -e: tcsh
+man gcc | cat -e: tcsh
+ls | cat -e  ; echo Makefile | cat -e | cat -e | cat -e: tcsh
+env | head -n 10 | cat -e: tcsh
+setenv a 10 | cat -e: tcsh
+cd | cat -e: tcsh
+setenv a 10 | grep a: tcsh
+|: tcsh
+env | || cat -e: tcsh
+# echo * | cat -e: tcsh
+
+##########
+# SETENV #
+##########
+setenv a=10; env | grep a=: tcsh
+setenv a=10; setenv a=20; env | grep a=: tcsh
+setenv a 10; env | grep a=: tcsh
+setenv a 10; setenv a 20; env | grep a=: tcsh
+setenv aaaa=10; setenv aaab=20; env | grep aaa.=: tcsh
+setenv aaaa 10; setenv aaab 20; env | grep aaa.=: tcsh
+
+###############
+# PARANTHESIS #
+###############
+ls ; ls )(: tcsh
+(ls|): tcsh
+ls):tcsh
+(ls:tcsh
+(ls):tcsh
+(ls;): tcsh
+ls -l > file\ncat < file:tcsh
+ls -la ; ls -l -a:tcsh
+(ls ; ls) | cat -e:tcsh
+(ls ; ls | cat -e ) | cat -e: tcsh
+((ls ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(ls ; ): tcsh
+( ; ls): tcsh
+(ls | ): tcsh
+(ls >> ): tcsh
+(ls << ): tcsh
+( | ls): tcsh
+( << ls): tcsh
+( < ls): tcsh
+
+echo left ; echo right )(: tcsh
+(echo left|): tcsh
+echo left):tcsh
+(echo left:tcsh
+(echo left):tcsh
+(echo left;): tcsh
+echo left -l > file\ncat < file:tcsh
+echo left -la ; ls -l -a:tcsh
+(echo left ; echo right) | cat -e:tcsh
+(echo left ; echo right | cat -e ) | cat -e: tcsh
+((echo left ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(echo left ; ): tcsh
+( ; echo right): tcsh
+(echo left | ): tcsh
+(echo left >> ): tcsh
+(echo left << ): tcsh
+( | echo right): tcsh
+( << echo right): tcsh
+( < echo right): tcsh
+
+echo "left" ; echo "right" )(: tcsh
+(echo "left"|): tcsh
+echo "left"):tcsh
+(echo "left":tcsh
+(echo "left"):tcsh
+(echo "left";): tcsh
+echo "left" -l > file\ncat < file:tcsh
+echo "left" -la ; ls -l -a:tcsh
+(echo "left" ; echo "right") | cat -e:tcsh
+(echo "left" ; echo "right" | cat -e ) | cat -e: tcsh
+((echo "left" ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(echo "left" ; ): tcsh
+( ; echo "right"): tcsh
+(echo "left" | ): tcsh
+(echo "left" >> ): tcsh
+(echo "left" << ): tcsh
+( | echo "right"): tcsh
+( << echo "right"): tcsh
+( < echo "right"): tcsh
+
+echo "left' ; echo "right" )(: tcsh
+(echo "left'|): tcsh
+echo "left'):tcsh
+(echo "left':tcsh
+(echo "left'):tcsh
+(echo "left';): tcsh
+echo "left' -l > file\ncat < file:tcsh
+echo "left' -la ; ls -l -a:tcsh
+(echo "left' ; echo "right") | cat -e:tcsh
+(echo "left' ; echo "right" | cat -e ) | cat -e: tcsh
+((echo "left' ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(echo "left' ; ): tcsh
+( ; echo "right"): tcsh
+(echo "left' | ): tcsh
+(echo "left' >> ): tcsh
+(echo "left' << ): tcsh
+( | echo "right"): tcsh
+( << echo "right"): tcsh
+( < echo "right"): tcsh
+
+echo 'left" ; echo "right" )(: tcsh
+(echo 'left"|): tcsh
+echo 'left"):tcsh
+(echo 'left":tcsh
+(echo 'left"):tcsh
+(echo 'left";): tcsh
+echo 'left" -l > file\ncat < file:tcsh
+echo 'left" -la ; ls -l -a:tcsh
+(echo 'left" ; echo "right") | cat -e:tcsh
+(echo 'left" ; echo "right" | cat -e ) | cat -e: tcsh
+((echo 'left" ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(echo 'left" ; ): tcsh
+( ; echo "right"): tcsh
+(echo 'left" | ): tcsh
+(echo 'left" >> ): tcsh
+(echo 'left" << ): tcsh
+( | echo "right"): tcsh
+( << echo "right"): tcsh
+( < echo "right"): tcsh
+
+echo 'left' ; echo 'right" )(: tcsh
+(echo 'left'|): tcsh
+echo 'left'):tcsh
+(echo 'left':tcsh
+(echo 'left'):tcsh
+(echo 'left';): tcsh
+echo 'left' -l > file\ncat < file:tcsh
+echo 'left' -la ; ls -l -a:tcsh
+(echo 'left' ; echo 'right") | cat -e:tcsh
+(echo 'left' ; echo 'right" | cat -e ) | cat -e: tcsh
+((echo 'left' ; echo ok) | cat -e ; echo ok2) > test ; cat test ; rm test: tcsh
+(echo 'left' ; ): tcsh
+( ; echo 'right"): tcsh
+(echo 'left' | ): tcsh
+(echo 'left' >> ): tcsh
+(echo 'left' << ): tcsh
+( | echo 'right"): tcsh
+( << echo 'right"): tcsh
+( < echo 'right"): tcsh
+
+######
+# LS #
+######
+bin/ls: tcsh
+"bin/ls": tcsh
+ls: tcsh
+ls                          /bin: tcsh
+ls -la ; ls -l -a: tcsh
+ls > test ; echo seul >> test ; cat test; rm test: tcsh
+
+#############
+# GLOBBINGS #
+#############
+ls *: tcsh
+# echo *: tcsh
+ls [A-z]*: tcsh
+ls ????: tcsh
+
+#######
+# AND #
+#######
+ls &&: tcsh
+&& ls: tcsh
+ls && echo display: tcsh
+ls && ls: tcsh
+ls /nimp && ls: tcsh
+ls /nimp && echo ne_doit_pas_etre_display: tcsh
+
+echo "left" &&: tcsh
+&& echo "right": tcsh
+echo "left" && echo display: tcsh
+echo "left" && echo "right": tcsh
+echo "left" /nimp && echo "right": tcsh
+echo "left" /nimp && echo ne_doit_pas_etre_display: tcsh
+
+cd &&: tcsh
+&& cd: tcsh
+cd ; cd - && echo display: tcsh
+cd && echo "OK": tcsh
+cd - && echo "OK": tcsh
+cd .. ; cd - && pwd: tcsh
+cd ~ && pwd: tcsh
+
+setenv a 10 &&: tcsh
+&& setenv a 10: tcsh
+setenv a 10 && echo "OK": tcsh
+
+######
+# OR #
+######
+ls ||: tcsh
+|| ls: tcsh
+ls || echo ne_doit_pas_etre_display: tcsh
+la || ls: tcsh
+ls || ls: tcsh
+la || echo display: tcsh
+
+echo "left" ||: tcsh
+|| echo "right": tcsh
+echo "left" || echo ne_doit_pas_etre_display: tcsh
+echo "left" || echo "right": tcsh
+echo "left" || echo "right": tcsh
+la || echo display: tcsh
+
+cd ||: tcsh
+|| cd: tcsh
+cd ; cd - || pwd: tcsh
+cd - || echo "OK": tcsh
+cd .. || pwd: tcsh
+cd || echo "OK": tcsh
+
+setenv a 10 ||: tcsh
+|| setenv a 10: tcsh
+setenv a 10 || echo "OK": tcsh
+
+######
+# CD #
+######
+cd ./tests/: tcsh
+cd ./tests/ ; echo $PWD: tcsh
+cd home ; cd -: tcsh
+cd /bin/ls: tcsh
+cd src: tcsh
+cd -: tcsh
+cd src; cd -: tcsh
+
+cd; ls: tcsh
+cd src; pwd: tcsh
+cd src; cd -; pwd: tcsh
+cd ~; pwd: tcsh
+cd ~; echo ~; echo $PATH: tcsh
+cd src; cd -; pwd: tcsh
+cd src; cd ..; cd -; pwd: tcsh
+
+########
+# EXIT #
+########
+exit: tcsh
+exit 36: tcsh
+
+#########
+# WHICH #
+#########
+which echo ls unknow:tcsh
+which "ls" echo unknown_cmd:tcsh
+which 'ls' echo unknown_cmd:tcsh
+which: tcsh
+which -: tcsh
+which ls: tcsh
+which cd: tcsh
+cd ~; which ls: tcsh
+cd ~; which cd: tcsh
+
+#########
+# WHERE #
+#########
+which echo ls unknow:tcsh
+which "ls" echo unknown_cmd:tcsh
+which 'ls' echo unknown_cmd:tcsh
+where: tcsh
+where -: tcsh
+where ls: tcsh
+where cd: tcsh
+cd ~; where ls: tcsh
+cd ~; where cd: tcsh
+
+#########
+# ALIAS #
+#########
+alias ls ls -l; ls: tcsh
+alias: tcsh
+alias tra ls ; tra -l: tcsh
+unalias: tcsh
+alias ls ok; unalias ls: tcsh
+alias lol ls\nlol: tcsh
+alias lol ls\nlol\nunalias lol\nlol: tcsh
+alias ll "ls -l"\nll: tcsh
+alias lol la\nalias la ls\nalias ls lol\nls: tcsh
+alias alias ls: tcsh
+
+##################
+#   LOCAL  VAR   #
+##################
+$?:tcsh
+$status:tcsh
+$PATH:tcsh
+a$TERM$TERMa:tcsh
+
+#########
+# OTHER #
+#########
+ls -l && echo ok ; mauvaisecommande || echo ok2: tcsh
+touch test.test ; ls *.test ; rm test.test:tcsh
+"exit": tcsh
+"exit 36": tcsh
+'exit 36': tcsh
+"echo ok": tcsh
+'echo "ok oui"': tcsh
