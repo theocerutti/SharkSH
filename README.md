@@ -36,7 +36,7 @@
       - CTRL+V: paste  
       - Tab: autocompletion  
 
-Basic builtins:   
+#### Basic builtins:   
 - cd, echo, exit, sharksh, alias, unalias, which/where, repeat, history.  
 - set, unset, setenv, unsetenv, printenv, env  
 
