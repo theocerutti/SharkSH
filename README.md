@@ -46,17 +46,10 @@
 2) ```make re```    
 3) ```./sharksh```  
 
-## Author  
-
-* **Théo CERUTTI** - [Github](https://github.com/theocerutti)
-* **Antoine MAILLARD** - [Github](https://github.com/AntoineMaillard06)
-* **Shiranuit** [Github](https://github.com/Shiranuit/)
-* **Mathilde COUSTON** - [Github](https://github.com/MathildeCouston)
-* **Cyril BEGARD** [Github](https://github.com/cyrilbegard/)
-
 ## Tests
 
-Pour faire un shell il nous faut énormement de tests, du coup on a crée un système de tests, +300 tests.
+For this project we needed to make a lots of tests. So we decided to create a complete test system. (unit / functional tests).  
+We did more than +300 tests.
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/44285344/58534049-78c4bb00-81ea-11e9-9677-1018d904225a.gif)
 
@@ -64,8 +57,12 @@ Pour faire un shell il nous faut énormement de tests, du coup on a crée un sys
 
 Autocompletion:
 
-![Screenshot from 2019-05-29 07-52-18](https://user-images.githubusercontent.com/44285344/58533471-ee2f8c00-81e8-11e9-8910-66b0629b2819.png)
-
-History:
-
 ![Untitled](https://user-images.githubusercontent.com/44285344/58535146-79128580-81ed-11e9-993e-3e8684b1d8ba.png)
+
+## Author  
+
+* **Théo CERUTTI** - [Github](https://github.com/theocerutti)
+* **Antoine MAILLARD** - [Github](https://github.com/AntoineMaillard06)
+* **Shiranuit** [Github](https://github.com/Shiranuit/)
+* **Mathilde COUSTON** - [Github](https://github.com/MathildeCouston)
+* **Cyril BEGARD** [Github](https://github.com/cyrilbegard/)
