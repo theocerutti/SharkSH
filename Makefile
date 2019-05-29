@@ -5,7 +5,7 @@
 ## makefile
 ##
 
-NAME =	42sh
+NAME =	sharksh
 UNITTEST = unity
 
 MAIN = src/main.c
