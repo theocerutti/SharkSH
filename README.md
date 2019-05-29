@@ -1,6 +1,6 @@
 ## SharkSH
 
-![Untitled](https://user-images.githubusercontent.com/44285344/58535146-79128580-81ed-11e9-993e-3e8684b1d8ba.png)
+![Untitled2](https://user-images.githubusercontent.com/44285344/58535145-77e15880-81ed-11e9-850d-93a6fcaf7b09.png)
 
 All features:  
 
@@ -66,4 +66,4 @@ Autocompletion:
 
 History:
 
-![Untitled2](https://user-images.githubusercontent.com/44285344/58535145-77e15880-81ed-11e9-850d-93a6fcaf7b09.png)
+![Untitled](https://user-images.githubusercontent.com/44285344/58535146-79128580-81ed-11e9-993e-3e8684b1d8ba.png)
