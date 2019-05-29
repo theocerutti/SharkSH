@@ -63,6 +63,6 @@ Autocompletion:
 
 * **Théo CERUTTI** - [Github](https://github.com/theocerutti)
 * **Antoine MAILLARD** - [Github](https://github.com/AntoineMaillard06)
-* **Shiranuit** [Github](https://github.com/Shiranuit/)
+* **Shiranuit** - [Github](https://github.com/Shiranuit/)
 * **Mathilde COUSTON** - [Github](https://github.com/MathildeCouston)
 * **Cyril BEGARD** [Github](https://github.com/cyrilbegard/)
