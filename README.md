@@ -1,6 +1,6 @@
 ## SharkSH
 
-![Screenshot from 2019-05-29 07-52-08](https://user-images.githubusercontent.com/44285344/58533473-eec82280-81e8-11e9-9074-96af1fe0d9b1.png)
+![Untitled](https://user-images.githubusercontent.com/44285344/58535146-79128580-81ed-11e9-993e-3e8684b1d8ba.png)
 
 All features:  
 
@@ -63,3 +63,7 @@ Pour faire un shell il nous faut énormement de tests, du coup on a crée un sys
 Autocompletion:
 
 ![Screenshot from 2019-05-29 07-52-18](https://user-images.githubusercontent.com/44285344/58533471-ee2f8c00-81e8-11e9-8910-66b0629b2819.png)
+
+History:
+
+![Untitled2](https://user-images.githubusercontent.com/44285344/58535145-77e15880-81ed-11e9-850d-93a6fcaf7b09.png)
